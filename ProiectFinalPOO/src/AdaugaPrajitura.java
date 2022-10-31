@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AdaugaPrajitura {   //Singleton
+public class AdaugaPrajitura {
         private JButton confirma;
         private JTextField textField1;
         private JTextField textField2;
@@ -17,7 +17,7 @@ public class AdaugaPrajitura {   //Singleton
         private JFrame frame;
         private static AdaugaPrajitura instance;
         private Cofetarie cof=Cofetarie.getInstance();
-        private AdaugaPrajitura() {
+        public AdaugaPrajitura() {
                 frame = new JFrame("Cofetarie");
                 ImageIcon image = new ImageIcon("src/cake.png");
                 frame.setIconImage(image.getImage());
@@ -25,34 +25,36 @@ public class AdaugaPrajitura {   //Singleton
                 frame.getContentPane().setBackground(Color.pink);
                 frame.setSize(500, 500);
                 frame.setVisible(true);
-
                 confirma.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                                nume=textField1.getText();
-                                if (nume.equals(""))
+                                nume = textField1.getText();
+                                if (nume.equals("")) {
                                         JOptionPane.showMessageDialog(null, "Nu ati introdus numele.",
                                                 "Eroare", JOptionPane.ERROR_MESSAGE);
-                                else {
-                                        nume = textField1.getText();
+                                        return;
+                                }
+                                nume = textField1.getText();
+                                if (textField2.getText().equals("")) {
+                                        JOptionPane.showMessageDialog(null, "Nu ati introdus pretul.",
+                                                "Eroare", JOptionPane.ERROR_MESSAGE);
+                                        return;
                                 }
                                 try {
                                         pret = Integer.parseInt(textField2.getText());
                                 } catch (NumberFormatException ex) {
                                         JOptionPane.showMessageDialog(null, "Introduceti un pret.",
                                                 "Eroare", JOptionPane.ERROR_MESSAGE);
+                                        return;
                                 }
-                                if (!Operatii.verifica(cof,nume)) {
+                                if (!Operatii.verifica(cof, nume)) {
                                         Operatii.add(cof, textField1, textField2, nume, pret);
                                         mesaj.setText("Prajitura a fost adaugata cu succes!");
-                                }
-                                else mesaj.setText("Prajitura deja exista in meniu.Va rugam alegeti alt nume.");
+                                } else mesaj.setText("Prajitura deja exista in meniu.Va rugam alegeti alt nume.");
                         }
                 });
-        }
-        public static AdaugaPrajitura getInstance(){
-                if(null==instance)
-                        instance=new AdaugaPrajitura();
-                return instance;
+                mesaj.setText("");
+                textField1.setText("");
+                textField2.setText("");
         }
 }
