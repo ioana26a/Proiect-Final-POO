@@ -37,7 +37,7 @@ public class MainFrame {
                                                         "Eroare", JOptionPane.ERROR_MESSAGE);
                                         }
                                         if(oraDes < 6 || oraDes > oraInc || oraInc > 22){
-                                                JOptionPane.showMessageDialog(null, "Program incorect.Programul trebuie sa fie definita in intervalul 6:00-22:00.",
+                                                JOptionPane.showMessageDialog(null, "Program incorect.Programul trebuie sa fie definit in intervalul 6:00-22:00.",
                                                         "Eroare", JOptionPane.ERROR_MESSAGE);
                                         }else if (nume.length() > 10) {
                                                 JOptionPane.showMessageDialog(null, "Numele este prea lung.Va rugam incercati din nou.",
