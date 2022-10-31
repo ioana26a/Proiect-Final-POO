@@ -65,7 +65,7 @@ public class NewFrame {
                 adaugarePrajituraButton.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                                AdaugaPrajitura p=AdaugaPrajitura.getInstance();
+                                AdaugaPrajitura p=new AdaugaPrajitura();
                         }
                 });
                 numarulDePrajituriButton.addActionListener(new ActionListener() {
