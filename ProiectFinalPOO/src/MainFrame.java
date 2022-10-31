@@ -5,7 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MainFrame {
-        public Cofetarie cof;
         private JPanel panel;
         private JTextField Camp1;
         private JTextField Camp2;
@@ -28,7 +27,7 @@ public class MainFrame {
                         new ActionListener() {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
-                                        cof = new Cofetarie();
+                                        Cofetarie cof = Cofetarie.getInstance();
                                         nume = Camp1.getText();
                                         try {
                                                 oraDes = Integer.parseInt(Camp2.getText());

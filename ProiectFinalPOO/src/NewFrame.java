@@ -18,7 +18,7 @@ public class NewFrame {
         private JTextField actualizare;
         private JLabel locatie;
         private static int  n=0;
-        private static Cofetarie cofet;
+        private Cofetarie cof=Cofetarie.getInstance();
 
         public NewFrame(Cofetarie cof){                   //MENIU
                 JFrame frame=new JFrame("Cofetarie");
@@ -31,7 +31,6 @@ public class NewFrame {
                 frame.setVisible(true);
                 titlu.setText("Cofetaria " + cof.getNume());
                 locatie.setText(cof.getLocatie());
-                this.cofet=cof;
                 initializareMeniuButton.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
@@ -92,13 +91,8 @@ public class NewFrame {
                         }
                 });
         }
-
-        public static Cofetarie getCofet() {
-                return cofet;
-        }
-
         public Prajitura cautare(String nume){
-                for (Prajitura p:cofet.getMeniuCofetarie()) {
+                for (Prajitura p:cof.getMeniuCofetarie()) {
                         if(p.getNume().equals(nume))
                                 return p;
                 }

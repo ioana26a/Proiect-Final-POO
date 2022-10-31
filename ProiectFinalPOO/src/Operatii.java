@@ -4,7 +4,6 @@ import cofetarie.Prajitura;
 import javax.swing.*;
 
 public class Operatii {
-
         public static boolean verifica(Cofetarie cof ,String nume){
                 for(Prajitura p: cof.getMeniuCofetarie()){
                         if(p.getNume().equals(nume)){

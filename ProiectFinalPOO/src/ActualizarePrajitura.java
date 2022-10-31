@@ -1,3 +1,4 @@
+import cofetarie.Cofetarie;
 import cofetarie.Prajitura;
 
 import javax.swing.*;
@@ -15,6 +16,7 @@ public class ActualizarePrajitura {
         private JButton confirmaButton;
         private JLabel numetxt,prettxt;
         private int pret;
+        private Cofetarie cof;
 
         public ActualizarePrajitura(Prajitura p){
                 JFrame frame = new JFrame("Cofetarie");
@@ -27,13 +29,17 @@ public class ActualizarePrajitura {
                 numeButton.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
+                                cof=Cofetarie.getInstance();
                                 String s = textField1.getText();
                                 if(s.equals(""))
                                         JOptionPane.showMessageDialog(null, "Nu ati introdus numele.",
                                                 "Eroare", JOptionPane.ERROR_MESSAGE);
                                 else {
-                                        p.setNume(s);
-                                        numetxt.setText("Nume actualizat cu succes.");
+                                        if (!Operatii.verifica(cof,s)) {
+                                                p.setNume(s);
+                                                numetxt.setText("Nume actualizat cu succes.");
+                                        }
+                                        else numetxt.setText("Prajitura deja exista in meniu.Va rugam alegeti alt nume.");
                                 }
 
                         }

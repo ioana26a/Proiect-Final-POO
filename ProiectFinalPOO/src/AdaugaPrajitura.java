@@ -16,7 +16,7 @@ public class AdaugaPrajitura {   //Singleton
         private int pret;
         private JFrame frame;
         private static AdaugaPrajitura instance;
-        private Cofetarie cof=NewFrame.getCofet();
+        private Cofetarie cof=Cofetarie.getInstance();
         private AdaugaPrajitura() {
                 frame = new JFrame("Cofetarie");
                 ImageIcon image = new ImageIcon("src/cake.png");
