@@ -1,6 +1,5 @@
 import cofetarie.Cofetarie;
 import cofetarie.Prajitura;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,8 +10,8 @@ public class ActualizarePrajitura {
         private JPanel panel;
         private JButton numeButton;
         private JButton pretButton;
-        private JTextField textField1;
-        private JTextField textField2;
+        private JTextField nume;
+        private JTextField pretField;
         private JButton confirmaButton;
         private JLabel numetxt,prettxt;
         private int pret;
@@ -26,14 +25,15 @@ public class ActualizarePrajitura {
                 frame.getContentPane().setBackground(Color.pink);
                 frame.setSize(500, 500);
                 frame.setVisible(true);
+                nume.setText(p.getNume());
+                pretField.setText(String.valueOf(p.getPret()));
                 numeButton.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
                                 cof=Cofetarie.getInstance();
-                                String s = textField1.getText();
+                                String s = nume.getText();
                                 if(s.equals(""))
-                                        JOptionPane.showMessageDialog(null, "Nu ati introdus numele.",
-                                                "Eroare", JOptionPane.ERROR_MESSAGE);
+                                        numetxt.setText("Va rugam introduceti un nume.");
                                 else {
                                         if (!Operatii.verifica(cof,s)) {
                                                 p.setNume(s);
@@ -41,21 +41,22 @@ public class ActualizarePrajitura {
                                         }
                                         else numetxt.setText("Prajitura deja exista in meniu.Va rugam alegeti alt nume.");
                                 }
-
                         }
                 });
                 pretButton.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
                                 try{
-                                        pret = Integer.parseInt(textField2.getText());
+                                        pret = Integer.parseInt(pretField.getText());
+                                }catch (NumberFormatException ex){
+                                        prettxt.setText("Pretul este incorect.Va rugam incercati din nou.");
+                                }
+                                if(pret<1)
+                                        prettxt.setText("Pretul este incorect.Va rugam incercati din nou.");
+                                else {
                                         p.setPret(pret);
                                         prettxt.setText("Pret actualizat cu succes.");
-                                }catch (NumberFormatException ex){
-                                        JOptionPane.showMessageDialog(null, "Pretul nu este introdus corect.Va rugam incercati din nou",
-                                                "Eroare", JOptionPane.ERROR_MESSAGE);
                                 }
-
                         }
                 });
                 confirmaButton.addActionListener(new ActionListener() {

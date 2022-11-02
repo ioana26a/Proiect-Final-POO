@@ -1,0 +1,6 @@
+Popescu Ion,str. Infratirii,0725368946
+Georgescu Mihai,str. Muncii,0725246946
+Marin Elena,str. Muncii,0725368689
+Alexandrescu Maria,str. Faget,0725368001
+Ionescu Marin,str. Victor Babes,0758768946
+Popescu Ion,str. Gh.Marinescu,0742568946

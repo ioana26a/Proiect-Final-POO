@@ -15,7 +15,6 @@ public class AdaugaPrajitura {
         private String nume;
         private int pret;
         private JFrame frame;
-        private static AdaugaPrajitura instance;
         private Cofetarie cof=Cofetarie.getInstance();
         public AdaugaPrajitura() {
                 frame = new JFrame("Cofetarie");
@@ -48,8 +47,12 @@ public class AdaugaPrajitura {
                                         return;
                                 }
                                 if (!Operatii.verifica(cof, nume)) {
-                                        Operatii.add(cof, textField1, textField2, nume, pret);
-                                        mesaj.setText("Prajitura a fost adaugata cu succes!");
+                                        if(pret<1){
+                                                mesaj.setText("Pretul este incorect.Va rugam incercati din nou.");
+                                        }else {
+                                                Operatii.add(cof,textField1,textField2,nume,pret);
+                                                mesaj.setText("Prajitura adaugata cu succes!");
+                                        }
                                 } else mesaj.setText("Prajitura deja exista in meniu.Va rugam alegeti alt nume.");
                         }
                 });

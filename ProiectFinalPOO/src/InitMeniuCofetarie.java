@@ -27,23 +27,31 @@ public class InitMeniuCofetarie {
                 confirmaButton.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                                if (textField1.getText().equals(""))
+
+                                if (textField1.getText().equals("")){
                                         JOptionPane.showMessageDialog(null, "Nu ati introdus numele.",
                                                 "Eroare", JOptionPane.ERROR_MESSAGE);
+                                        return;
+                                }
                                 else {
                                         nume = textField1.getText();
                                 }
-                                try {
-                                        pret = Integer.parseInt(textField2.getText());
-                                } catch (NumberFormatException ex) {
-                                        JOptionPane.showMessageDialog(null, "Introduceti un pret.",
-                                                "Eroare", JOptionPane.ERROR_MESSAGE);
-                                }
                                 if(numarPrajituri!=n){
+                                        try {
+                                                pret = Integer.parseInt(textField2.getText());
+                                        } catch (NumberFormatException ex) {
+                                                mesaj.setText("Pretul este incorect.Va rugam incercati din nou.");
+                                                return;
+                                        }
                                         if (!Operatii.verifica(cof,nume)){
-                                                Operatii.add(cof,textField1,textField2,nume,pret);
-                                                mesaj.setText("Prajitura adaugata cu succes!");
-                                                numarPrajituri++;
+                                                if(pret<1){
+                                                        mesaj.setText("Pretul este incorect.Va rugam incercati din nou.");
+                                                }else {
+                                                        Operatii.add(cof,textField1,textField2,nume,pret);
+                                                        mesaj.setText("Prajitura adaugata cu succes!");
+                                                        numarPrajituri++;
+                                                }
+
                                         }
                                         else mesaj.setText("Prajitura deja exista in meniu.Va rugam alegeti alt nume.");
                                 }

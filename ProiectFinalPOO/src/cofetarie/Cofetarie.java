@@ -8,6 +8,7 @@ public class Cofetarie {    //Singleton
         private int oraDeschidere;
         private final String locatie="Targu Mures";
         ArrayList<Prajitura> meniuCofetarie = new ArrayList<>();
+        ArrayList<Client>listaClienti = new ArrayList<>();
         private Cofetarie(){
         }
 
@@ -38,7 +39,15 @@ public class Cofetarie {    //Singleton
         public ArrayList<Prajitura> getMeniuCofetarie() {
                 return meniuCofetarie;
         }
-
+        public void addPrajitura(Prajitura p){
+                meniuCofetarie.add(p);
+        }
+        public void addClient(Client c){
+                listaClienti.add(c);
+        }
+        public ArrayList<Client>getListaClienti(){
+                return listaClienti;
+        }
         @Override
         public String toString() {
                 return "Cofetaria " + nume + " este deschisa in intervalul orar " + oraDeschidere + ":00-" + oraInchidere + ":00.";

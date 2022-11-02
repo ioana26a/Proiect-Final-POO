@@ -51,7 +51,7 @@ public class MainFrame {
                                                 cof.setOraDeschidere(oraDes);
                                                 cof.setOraInchidere(oraInc);
                                                 MainFrame.frame.dispose();
-                                                NewFrame n = new NewFrame(cof);
+                                                Optiune op=new Optiune();
                                         }
                                 }
                         }

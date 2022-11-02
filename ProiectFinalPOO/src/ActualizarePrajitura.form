@@ -14,6 +14,7 @@
         </constraints>
         <properties>
           <font size="24" style="1"/>
+          <labelFor value="2c408"/>
           <text value="Actualizare prajitura"/>
         </properties>
       </component>
@@ -41,7 +42,7 @@
           <text value="Confirma"/>
         </properties>
       </component>
-      <component id="55cbf" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+      <component id="55cbf" class="javax.swing.JTextField" binding="nume">
         <constraints>
           <grid row="1" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="2" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -51,7 +52,7 @@
           <enabled value="true"/>
         </properties>
       </component>
-      <component id="2c408" class="javax.swing.JTextField" binding="textField2" default-binding="true">
+      <component id="2c408" class="javax.swing.JTextField" binding="pretField">
         <constraints>
           <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="2" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>

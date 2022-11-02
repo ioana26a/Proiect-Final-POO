@@ -7,6 +7,11 @@ public class Prajitura implements IPrajitura{
                 super();
                 nrPrajituri++;
         }
+        public Prajitura(String nume,int pret){
+                this.nume=nume;
+                this.pret=pret;
+                nrPrajituri++;
+        }
         public String getNume() {
                 return nume;
         }
@@ -19,7 +24,7 @@ public class Prajitura implements IPrajitura{
                 this.nume=nume;
         }
         public String toString(){
-                return nume + "   " + pret + " lei.\n";
+                return nume + " " + pret + " lei.\n";
         }
         @Override
         public void adaugarePrajitura(String nume, int pret) {
@@ -30,5 +35,7 @@ public class Prajitura implements IPrajitura{
                 return nrPrajituri;
         }
 
-
+        public int getPret() {
+                return pret;
+        }
 }
