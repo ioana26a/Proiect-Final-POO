@@ -1,5 +1,6 @@
 import cofetarie.Client;
 import cofetarie.Cofetarie;
+import cofetarie.Comanda;
 import cofetarie.Prajitura;
 
 import javax.swing.*;
@@ -52,7 +53,17 @@ public class Read {
                                 "Eroare", JOptionPane.ERROR_MESSAGE);
                 }
         }
-
-        //metoda pt scrierea comenzilor plasate in fisier
+        public void scriereComanda(Comanda comanda){
+                try {
+                        FileWriter myWriter = new FileWriter("src\\Istoric_comenzi_cofetarie.txt");
+                        myWriter.write(comanda.toString());
+                        myWriter.close();
+                        System.out.println("Successfully wrote to the file.");
+                } catch (IOException e) {
+                        JOptionPane.showMessageDialog(null, "Eroare la scrierea comenzii in fisier.",
+                                "Eroare", JOptionPane.ERROR_MESSAGE);
+                        e.printStackTrace();
+                }
+        }
 
 }

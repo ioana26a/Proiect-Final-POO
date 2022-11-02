@@ -1,4 +1,5 @@
 import cofetarie.Client;
+import cofetarie.Cofetarie;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +13,7 @@ public class AdaugareClient {
         private JTextField telefonField;
         private JLabel nume;
         private JPanel panel;
-
+        private Cofetarie cof=Cofetarie.getInstance();
         public AdaugareClient(){
                 JFrame frame=new JFrame("Cofetarie");
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -26,14 +27,8 @@ public class AdaugareClient {
                 confirmaButton.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                                String nume=numeField.getText();
-                                String adresa=adresaField.getText();
-                                String telefon=telefonField.getText();
-                                Client client=new Client(nume,adresa,telefon);
-                                frame.dispose();
+                                Operatii.addClient(cof,numeField,adresaField,telefonField);
                         }
                 });
-
-
         }
 }

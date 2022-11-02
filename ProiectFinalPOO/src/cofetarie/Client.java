@@ -15,18 +15,6 @@ public class Client {
         public String getNrTelefon() {
                 return nrTelefon;
         }
-        public void setNume(){
-                this.nume=nume;
-        }
-
-        public void setAdresa(String adresa) {
-                this.adresa = adresa;
-        }
-
-        public void setNrTelefon(String nrTelefon) {
-                this.nrTelefon = nrTelefon;
-        }
-
         @Override
         public String toString() {
                 return nume + "," + adresa + "," + nrTelefon;

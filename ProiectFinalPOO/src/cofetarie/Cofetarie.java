@@ -6,12 +6,10 @@ public class Cofetarie {    //Singleton
         private String nume;
         private int oraInchidere;
         private int oraDeschidere;
-        private final String locatie="Targu Mures";
-        ArrayList<Prajitura> meniuCofetarie = new ArrayList<>();
-        ArrayList<Client>listaClienti = new ArrayList<>();
+        private ArrayList<Prajitura> meniuCofetarie = new ArrayList<>();
+        private ArrayList<Client>listaClienti = new ArrayList<>();
         private Cofetarie(){
         }
-
         public static Cofetarie getInstance() {
                 if(instance==null)
                         instance=new Cofetarie();
@@ -24,10 +22,6 @@ public class Cofetarie {    //Singleton
         public String getNume() {
                 return nume;
         }
-        public String getLocatie() {
-                return locatie;
-        }
-
         public void setOraInchidere(int oraInchidere) {
                 this.oraInchidere = oraInchidere;
         }

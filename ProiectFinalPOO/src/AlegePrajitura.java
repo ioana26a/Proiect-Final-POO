@@ -58,13 +58,15 @@ public class AlegePrajitura {
                                         com.suma();
                                         System.out.println(com.toString());
                                         frame.dispose();
+                                        Read r=new Read();
+                                        r.scriereComanda(com);
                                         JOptionPane.showMessageDialog(null,"Comanda a fost plasata cu succes.",
                                                 "Confirmare comanda",JOptionPane.PLAIN_MESSAGE);
                                 }
 
                         }
                 });
-                //daca nu se adauga nici o prajitura atunci sa se stearga ref la comanda asta
-                //scriere in fisier informatiile folosind toString
+
+                //daca nu se adauga nici o prajitura atunci sa se stearga ref la comanda
         }
 }

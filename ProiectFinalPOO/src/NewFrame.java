@@ -16,7 +16,6 @@ public class NewFrame {
         private JLabel nrPrajituri;
         private JTextField nrInit;
         private JTextField actualizare;
-        private JLabel locatie;
         private JButton inapoi;
         private JButton initializarePrajituriButton;
         private JLabel mesaj;
@@ -33,7 +32,6 @@ public class NewFrame {
                 frame.setSize(500,500);
                 frame.setVisible(true);
                 titlu.setText("Cofetaria " + cof.getNume());
-                locatie.setText(cof.getLocatie());
                 initializareMeniuButton.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
