@@ -16,15 +16,19 @@ public class MainFrame {
         public int oraDes,oraInc;
         public MainFrame() {
                 frame=new JFrame("Cofetarie");
+
+                frame.setLocationRelativeTo(null);
+                JLabel j=new JLabel();
+                j.setIcon(new ImageIcon("src/cake_image.jpg"));
+                frame.add(j);
+                j.setSize(500,500);
+
+                //frame.setContentPane(panel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                ImageIcon image= new ImageIcon("src/cake.png");
-                frame.setIconImage(image.getImage());
-                frame.setContentPane(panel);
-                frame.getContentPane().setBackground(Color.pink);
+                //frame.getContentPane().setBackground(Color.pink);
                 frame.setSize(500,500);
                 frame.setVisible(true);
-                btn.addActionListener(
-                        new ActionListener() {
+                btn.addActionListener(new ActionListener() {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
                                         Cofetarie cof = Cofetarie.getInstance();
